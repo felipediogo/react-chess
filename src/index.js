@@ -19,6 +19,8 @@ render(
   document.getElementById('app')
 );
 
+//store.subscribe(render);
+
 if (module.hot) {
   module.hot.accept('./components/Game', () => {
     const NewGame = require('./components/Game').default;

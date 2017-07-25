@@ -14,7 +14,9 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    // case 'PIECE_SELECTED':
+    case 'PIECE_SELECTED':
+      console.log(`state -> ${state} <=> ${action}`);
+      return state;
     //   return state.set('board', [
     //     ['black-horse', 'black-tower', 'black-bishop', 'black-queen', 'black-king', 'black-bishop', 'black-horse', 'black-tower'],
     //     Array(8).fill('black-pawn'),
