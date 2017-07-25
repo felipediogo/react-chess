@@ -6,13 +6,10 @@ import Board from './Board';
 export default class Game extends Component {
   render() {
     const { store } = this.props;
-
+    console.log(store.getState().gameReducer.board);
     return (
       <Provider store={store}>
-        <Board dimensions={{
-          x: 8,
-          y: 8,
-        }} />
+        <Board boardPieces={store.getState().gameReducer.board} />
       </Provider>
     );
   }

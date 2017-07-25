@@ -31,6 +31,7 @@
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.5",
+    "immutable": "^3.8.1",
     "jsx-control-statements": "^3.2.5",
     "object-assign": "4.1.0",
     "react": "15.5.4",
