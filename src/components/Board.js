@@ -3,7 +3,10 @@ import Square from './Square';
 import Piece from './Piece';
 
 export default ({ store }) => {
-  const onPieceClick = () => console.log('oi');
+  const onPieceClick = (piece) => store.dispatch({
+    type: 'PIECE_SELECTED',
+    piece: piece
+  });
   console.log(store.getState().game);
   const game = store.getState().game;
   return (
@@ -11,7 +14,7 @@ export default ({ store }) => {
       <For each="item" index="x" of={game.board}>
         <div>
           <For each="item" index="i" of={game.board}>
-            <Square color={(i + x) % 2 == 0 ? 'white' : 'black'} >
+            <Square color={(i + x) % 2 == 0 ? 'white' : 'black'} key={`${x}${i}`} >
               <If condition={game.board[x][i]}>
                 <Piece piece={game.board[x][i]} onClick={(piece) => onPieceClick(piece)} value={`${x}-${i}`} />
               </If>

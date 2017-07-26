@@ -19,7 +19,12 @@ render(
   document.getElementById('app')
 );
 
-//store.subscribe(render);
+store.subscribe(() => render(
+  <AppContainer>
+    <Game store={store} />
+  </AppContainer>,
+  document.getElementById('app')
+));
 
 if (module.hot) {
   module.hot.accept('./components/Game', () => {

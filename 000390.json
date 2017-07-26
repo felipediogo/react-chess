@@ -1,0 +1,90 @@
+{
+  "deviceType": "153510-03",
+  "ncis": [
+    {
+      "canActivate": true,
+      "type": "M2M",
+      "appId": "35b49aa2-e227-495f-9d80-1ae27d547aa7",
+      "id": "afc74fa4-990e-4a6f-99e0-a67900e5277a",
+      "connectionIdentifier": "990002186568620",
+      "dataPlan": null,
+      "ownershipIdentifier": "15302952511551135114"
+    },
+    {
+      "canActivate": true,
+      "type": "WiFi",
+      "appId": "b8de2686-746e-4e62-bd03-b3e6324f0fba",
+      "id": "bc5e5786-efd5-4435-8564-a67900e52778",
+      "connectionIdentifier": "00-23-A7-8D-8A-8C",
+      "dataPlan": null,
+      "ownershipIdentifier": "15302952511551135114"
+    },
+    {
+      "canActivate": false,
+      "type": "SBD",
+      "appId": "b65d61e8-9a73-40f7-8bc5-b9746b997fc0",
+      "id": "5a0b4a8a-68aa-4c7a-b9c0-a67900e52775",
+      "connectionIdentifier": "300434030007350",
+      "dataPlan": null,
+      "ownershipIdentifier": "15302952511551135114"
+    }
+  ],
+  "ncas": [
+    {
+      "canActivate": true,
+      "type": "Post-Paid",
+      "connectionMethod": "CDMA",
+      "accessIdentifier": "990002186568620",
+      "canDeactivate": false,
+      "provider": "Verizon Direct",
+      "dataPlan": {
+        "isTextMessagesSupported": true,
+        "appId": "ec910442-7185-4119-970b-1917c66395f9",
+        "isDataBytesSupported": true,
+        "id": "816dca1e-7ae3-40f2-b8d3-ce7b0b2fbbdb",
+        "name": "Verizon Direct, Pay-As-You-Go Data Plan",
+        "hardwareProvider": "Verizon Direct",
+        "referenceNumber": "M2MUSTIER",
+        "isDisabled": false,
+        "isVoiceSecondsUnlimited": false,
+        "textMessagesAllocated": 0,
+        "isVoiceSecondsSupported": false,
+        "isTextMessagesUnlimited": true,
+        "isDataBytesUnlimited": true,
+        "isDataSecondsUnlimited": false,
+        "connectionMethod": "CDMA:LTE",
+        "dataBytesAllocated": 0,
+        "provider": "Verizon Direct",
+        "isDataSecondsSupported": false
+      }
+    },
+    {
+      "canActivate": false,
+      "type": "Post-Paid",
+      "connectionMethod": "Iridium Satellite",
+      "accessIdentifier": "300434030007350",
+      "canDeactivate": true,
+      "provider": "Iridium",
+      "dataPlan": {
+        "isTextMessagesSupported": false,
+        "appId": "3175ed0a-1eb6-4e30-acb8-957909b1ca1b",
+        "isDataBytesSupported": true,
+        "id": "19ef2aa6-6290-4ba4-ab67-659a4655a1c1",
+        "name": "IRIDIUM SBD 0 Data Plan",
+        "hardwareProvider": "Iridium",
+        "referenceNumber": "763925991",
+        "isDisabled": false,
+        "isVoiceSecondsUnlimited": false,
+        "textMessagesAllocated": 0,
+        "isVoiceSecondsSupported": false,
+        "isTextMessagesUnlimited": false,
+        "isDataBytesUnlimited": true,
+        "isDataSecondsUnlimited": false,
+        "connectionMethod": "Iridium Satellite",
+        "dataBytesAllocated": null,
+        "provider": "Iridium",
+        "isDataSecondsSupported": false
+      }
+    }
+  ]
+}

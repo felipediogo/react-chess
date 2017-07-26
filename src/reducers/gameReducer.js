@@ -10,23 +10,46 @@ const initialState = {
     Array(8).fill('white-pawn'),
     ['white-tower', 'white-horse', 'white-bishop', 'white-queen', 'white-king', 'white-bishop', 'white-horse', 'white-tower'],
   ],
+  selectedPiece: {},
 };
+const changePieceLocation = (piece, location, board) => {
+  const newBoard = board.map(function (arr) {
+    return arr.slice();
+  });
+  const { pieceY, pieceX } = piece.location.split('-');
+  const { newLocationY, newLocationX } = location.split('-');
+  newBoard[pieceY][pieceX] = null;
+  newBoard[newLocationY][newLocationX] = piece.piece;
+  return newBoard;
+};
+const isTheSamePiece = (selectedPiece, actionPiece) => selectedPiece && selectedPiece.piece === actionPiece.piece && selectedPiece.position === actionPiece.position;
 
 export default (state = initialState, action) => {
+  console.log(action);
   switch (action.type) {
     case 'PIECE_SELECTED':
-      console.log(`state -> ${state} <=> ${action}`);
+      if (isTheSamePiece(action.piece, state.selectedPiece)) {
+        return {
+          ...state,
+          selectedPiece: {}
+        };
+      }
+      return {
+        ...state,
+        selectedPiece: {
+          piece: action.piece.piece,
+          position: action.piece.position
+        }
+      };
+    case 'SQUARE_CLICKED':
+      if (state.selectedPiece) {
+        return {
+          ...state,
+          board: changePieceLocation(state.selectedPiece, action.location, state.board),
+          selectedPiece: {}
+        };
+      }
       return state;
-    //   return state.set('board', [
-    //     ['black-horse', 'black-tower', 'black-bishop', 'black-queen', 'black-king', 'black-bishop', 'black-horse', 'black-tower'],
-    //     Array(8).fill('black-pawn'),
-    //     Array(8).fill(null),
-    //     Array(8).fill(null),
-    //     Array(8).fill(null),
-    //     Array(8).fill(null),
-    //     Array(8).fill('white-pawn'),
-    //     ['white-tower', 'white-horse', 'white-bishop', 'white-queen', 'white-king', 'white-bishop', 'white-horse', 'white-tower'],
-    //   ]);
     default:
       return state;
   }
