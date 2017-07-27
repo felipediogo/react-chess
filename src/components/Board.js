@@ -7,16 +7,27 @@ export default ({ store }) => {
     type: 'PIECE_SELECTED',
     piece: piece
   });
-  console.log(store.getState().game);
+
+  const onSquareClick = (piece, position) => {
+    if (!piece) {
+      console.log(`piece -> ${piece} | position -> ${position}`);
+      // console.log('oi');
+      // store.dispatch({
+
+      // });
+    }
+    console.log(`piece -> ${piece} | position -> ${position}`);
+  };
+
   const game = store.getState().game;
   return (
     <div className="board">
-      <For each="item" index="x" of={game.board}>
+      <For each="item" index="y" of={game.board}>
         <div>
-          <For each="item" index="i" of={game.board}>
-            <Square color={(i + x) % 2 == 0 ? 'white' : 'black'} key={`${x}${i}`} >
-              <If condition={game.board[x][i]}>
-                <Piece piece={game.board[x][i]} onClick={(piece) => onPieceClick(piece)} value={`${x}-${i}`} />
+          <For each="item" index="x" of={game.board}>
+            <Square color={(y + x) % 2 == 0 ? 'white' : 'black'} position={`${y}-${x}`} key={`${y}-${x}`} onClick={onSquareClick} >
+              <If condition={game.board[y][x]}>
+                <Piece piece={game.board[y][x]} onClick={(piece) => onPieceClick(piece)} value={`${y}-${x}`} key={`${y}-${x}`} />
               </If>
             </Square>
           </For>
