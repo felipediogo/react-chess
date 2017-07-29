@@ -16,8 +16,9 @@ const changePieceLocation = (piece, location, board) => {
   const newBoard = board.map(function (arr) {
     return arr.slice();
   });
-  const { pieceY, pieceX } = piece.location.split('-');
-  const { newLocationY, newLocationX } = location.split('-');
+  let pieceY, pieceX, newLocationY, newLocationX;
+  [ pieceY, pieceX ] = piece.position.split('-');
+  [ newLocationY, newLocationX ] = location.split('-');
   newBoard[pieceY][pieceX] = null;
   newBoard[newLocationY][newLocationX] = piece.piece;
   return newBoard;
@@ -25,7 +26,6 @@ const changePieceLocation = (piece, location, board) => {
 const isTheSamePiece = (selectedPiece, actionPiece) => selectedPiece && selectedPiece.piece === actionPiece.piece && selectedPiece.position === actionPiece.position;
 
 export default (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case 'PIECE_SELECTED':
       if (isTheSamePiece(action.piece, state.selectedPiece)) {

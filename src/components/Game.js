@@ -7,6 +7,9 @@ export default class Game extends Component {
 
   render() {
     const { store } = this.props;
+    
+    console.log(store.getState());
+
     return (
       <Provider store={store}>
         <Board

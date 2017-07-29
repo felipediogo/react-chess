@@ -10,11 +10,10 @@ export default ({ store }) => {
 
   const onSquareClick = (piece, position) => {
     if (!piece) {
-      console.log(`piece -> ${piece} | position -> ${position}`);
-      // console.log('oi');
-      // store.dispatch({
-
-      // });
+      return store.dispatch({
+        type: 'SQUARE_CLICKED',
+        location: position
+      });
     }
     console.log(`piece -> ${piece} | position -> ${position}`);
   };
