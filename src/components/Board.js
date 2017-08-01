@@ -15,7 +15,6 @@ export default ({ store }) => {
         location: position
       });
     }
-    console.log(`piece -> ${piece} | position -> ${position}`);
   };
 
   const game = store.getState().game;

@@ -1,3 +1,4 @@
+import pieceReducer from './pieceReducer';
 
 const initialState = {
   board: [
@@ -11,7 +12,11 @@ const initialState = {
     ['white-tower', 'white-horse', 'white-bishop', 'white-queen', 'white-king', 'white-bishop', 'white-horse', 'white-tower'],
   ],
   selectedPiece: {},
+  isWhiteMove: true,
 };
+
+const getPiece = (piece) => piece.split('-')[1];
+
 const changePieceLocation = (piece, location, board) => {
   const newBoard = board.map(function (arr) {
     return arr.slice();
@@ -23,7 +28,9 @@ const changePieceLocation = (piece, location, board) => {
   newBoard[newLocationY][newLocationX] = piece.piece;
   return newBoard;
 };
-const isTheSamePiece = (selectedPiece, actionPiece) => selectedPiece && selectedPiece.piece === actionPiece.piece && selectedPiece.position === actionPiece.position;
+
+const isTheSamePiece = (selectedPiece, actionPiece) =>
+  selectedPiece && selectedPiece.piece === actionPiece.piece && selectedPiece.position === actionPiece.position;
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -33,6 +40,8 @@ export default (state = initialState, action) => {
           ...state,
           selectedPiece: {}
         };
+      } else if (state.selectedPiece.piece) {
+        pieceReducer[getPiece(state.selectedPiece.piece)](state.isWhiteMove ? 'white' : 'black', state.board, '1-7');
       }
       return {
         ...state,
